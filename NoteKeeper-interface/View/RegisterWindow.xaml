@@ -3,10 +3,93 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="300" Width="300">
-    <Grid>
+        Title="RegisterWindow" 
+        Height="332" Width="516"
+        MinHeight="332" MinWidth="516"
+        WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="PasswordChar" Value="*"/>
+        </Style> 
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="24" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid Margin="108 20">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         
+        <!-- Grid body -->
+        
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                   Text="Login:"/>
+        <TextBox Grid.Row="0" Grid.Column="1"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0"
+                   Text="Password:"/>
+        <PasswordBox Grid.Row="1" Grid.Column="1"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0"
+                   Text="Repeat:"/>
+        <PasswordBox Grid.Row="2" Grid.Column="1"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Grid.RowSpan="2"
+                   Text="Question:"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" 
+                  SelectedIndex="0" Height="25">
+            <ComboBoxItem>Choose secret question</ComboBoxItem>
+        </ComboBox>
+        <TextBox Grid.Row="4" Grid.Column="1"/>
+
+        <Grid Grid.Row="5" Grid.Column="1" Height="50">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                    Width="50" Height="50" HorizontalAlignment="Left"
+                    BorderBrush="Black" BorderThickness="1">
+                <Image Name="Avatar"/>
+            </Border>
+            
+            <Button Grid.Row="0" Grid.Column="1"
+                    Content="choose file..."/>
+            <Button Grid.Row="1" Grid.Column="1"
+                    Content="Upload"/>
+        </Grid>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
+                   Foreground="Red"  TextAlignment="Right"
+                   Text="Error message." VerticalAlignment="Center"/>
+        <Button Grid.Row="7" Grid.Column="1"
+                Content="Create" Height="29"/>
+
     </Grid>
 </Window>
