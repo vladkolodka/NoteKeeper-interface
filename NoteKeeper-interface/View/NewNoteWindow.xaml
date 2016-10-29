@@ -5,8 +5,123 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
-        Title="NewNoteWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="Create new note" Height="372" Width="585"
+        MinHeight="372" MinWidth="585" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Padding" Value="20 0" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10 5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="108" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Height" Value="28" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"
+                    Width="100" Height="100" HorizontalAlignment="Left"
+                    BorderBrush="#ABADB3" BorderThickness="1">
+                <Image Name="Avatar" />
+            </Border>
+
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Text="Title" />
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0"
+                         Text="tag1, tag2, tag3, tag4" Margin="0 0 5 0" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="Note group" VerticalAlignment="Center" Margin="10 0" />
+                    <ComboBox SelectedIndex="0" MaxWidth="150">
+                        <ComboBoxItem>default</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                            Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                            <Setter Property="Padding" Value="6 0" />
+                            <Setter Property="Margin" Value="0 0 5 0" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button Content="B" />
+                    <Button Content="I" />
+                    <Button Content="U" Margin="0 0 10 0" />
+                </StackPanel>
+
+                <ComboBox Grid.Column="1" SelectedIndex="0" Margin="0 0 5 0">
+                    <ComboBoxItem>Subtitle</ComboBoxItem>
+                </ComboBox>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                            <Setter Property="Padding" Value="11 0" />
+                            <Setter Property="Margin" Value="0 0 5 0" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Rectangle Fill="Black" Height="28" Width="28"
+                           Margin="0 0 5 0" />
+                    <Button Content="+IMG" />
+                    <Button Content="+LIST" />
+                    <Button Content="+URL" Margin="0" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <TextBox Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsTab="True" AcceptsReturn="True" />
+        <DockPanel Grid.Row="2" LastChildFill="False" Margin="0 5 0 0">
+            <DockPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Margin" Value="5 0 0 0" />
+                </Style>
+            </DockPanel.Resources>
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <Button Content="&#60;- Back" Margin="0" />
+                <Button Content="Preview" />
+            </StackPanel>
+
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <TextBlock Text="Last edited: 7 OCT 2015 14:03:20" VerticalAlignment="Center" />
+                <Button Content="Publish" />
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

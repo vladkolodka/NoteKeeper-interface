@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="RegisterWindow" 
+        Title="Create new kachNote account" 
         Height="332" Width="516"
         MinHeight="332" MinWidth="516"
         WindowStartupLocation="CenterOwner">
@@ -59,7 +59,7 @@
         <TextBlock Grid.Row="3" Grid.Column="0" Grid.RowSpan="2"
                    Text="Question:"/>
         <ComboBox Grid.Row="3" Grid.Column="1" 
-                  SelectedIndex="0" Height="25">
+                  SelectedIndex="0" Height="25" VerticalContentAlignment="Center">
             <ComboBoxItem>Choose secret question</ComboBoxItem>
         </ComboBox>
         <TextBox Grid.Row="4" Grid.Column="1"/>
@@ -75,7 +75,7 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                     Width="50" Height="50" HorizontalAlignment="Left"
-                    BorderBrush="Black" BorderThickness="1">
+                    BorderBrush="#ABADB3" BorderThickness="1">
                 <Image Name="Avatar"/>
             </Border>
             
