@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
         Title="Create new note" Height="372" Width="585"
         MinHeight="372" MinWidth="585" WindowStartupLocation="CenterOwner">
@@ -97,8 +96,8 @@
                             <Setter Property="Margin" Value="0 0 5 0" />
                         </Style>
                     </StackPanel.Resources>
-                    <Rectangle Fill="Black" Height="28" Width="28"
-                           Margin="0 0 5 0" />
+                    <Rectangle Fill="Black" Height="28" Width="28" Cursor="Hand"
+                           Margin="0 0 5 0" MouseDown="ColorRectangle_OnMouseDown" />
                     <Button Content="+IMG" />
                     <Button Content="+LIST" />
                     <Button Content="+URL" Margin="0" />
@@ -120,7 +119,7 @@
 
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
                 <TextBlock Text="Last edited: 7 OCT 2015 14:03:20" VerticalAlignment="Center" />
-                <Button Content="Publish" />
+                <Button Content="Publish" Click="PublishButton_OnClick"/>
             </StackPanel>
         </DockPanel>
     </Grid>

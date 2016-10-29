@@ -23,6 +23,10 @@
         </Style>
     </Window.Resources>
     
+    <Window.CommandBindings>
+        <CommandBinding Command="GoToPage" Executed="GoCommand_OnExecuted" CanExecute="GoCommand_OnCanExecute"/>
+    </Window.CommandBindings>
+    
     <Grid Margin="8 11">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -46,20 +50,27 @@
         
         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
                    Foreground="Red"  TextAlignment="Right"
-                   Text="Login or password is incorrent. Try again."/>
+                   Text="Login or password is incorrent. Try again."
+                   Name="ErrorText" Visibility="Hidden"/>
         
         <!-- Login -->
         <TextBlock Grid.Row="2" Grid.Column="0"
                    Text="Login:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1"/>
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Name="LoginText" TabIndex="0"
+                 GotFocus="TextBox_OnGotFocus"/>
 
         <!-- Password -->
         <TextBlock Grid.Row="3" Grid.Column="0">
             Password(<Hyperlink>forgot?</Hyperlink>):
         </TextBlock>
-        <PasswordBox Grid.Row="3" Grid.Column="1" PasswordChar="*"/>
+        <PasswordBox Grid.Row="3" Grid.Column="1" 
+                     PasswordChar="*" Name="PasswordText" TabIndex="1"
+                     GotFocus="TextBox_OnGotFocus"/>
         
-        <Button Grid.Row="4" Grid.Column="1"
-                Content="GO"/>
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Content="GO" TabIndex="2"
+                Command="GoToPage"/>
     </Grid>
 </Window>

@@ -61,11 +61,56 @@ namespace NoteKeeper_interface.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Account successfully created..
         /// </summary>
-        internal static string bad_password {
+        internal static string accountCreated {
             get {
-                return ResourceManager.GetString("bad_password", resourceCulture);
+                return ResourceManager.GetString("accountCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password must contain more than 7 characters, numbers and uppercase..
+        /// </summary>
+        internal static string badPassword {
+            get {
+                return ResourceManager.GetString("badPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match, try again..
+        /// </summary>
+        internal static string diffPasswords {
+            get {
+                return ResourceManager.GetString("diffPasswords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username is already in use..
+        /// </summary>
+        internal static string loginInUse {
+            get {
+                return ResourceManager.GetString("loginInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note saved..
+        /// </summary>
+        internal static string noteSaved {
+            get {
+                return ResourceManager.GetString("noteSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password recovery instructions sent by E-mail..
+        /// </summary>
+        internal static string resrorePassInstructionSend {
+            get {
+                return ResourceManager.GetString("resrorePassInstructionSend", resourceCulture);
             }
         }
     }
