@@ -10,8 +10,8 @@ namespace NoteKeeper_interface.View {
         private int _counter;
 
         public LoginWindow() {
-            new NewNoteWindow().Show();
-            Close();
+            //new NewNoteWindow().Show();
+            //Close();
 
             InitializeComponent();
             LoginText.Focus();

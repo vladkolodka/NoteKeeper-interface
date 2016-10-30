@@ -7,11 +7,11 @@
         Title="Create new note" Height="372" Width="585"
         MinHeight="372" MinWidth="585" WindowStartupLocation="CenterOwner">
     <Window.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
             <Setter Property="Height" Value="28" />
             <Setter Property="Padding" Value="20 0" />
         </Style>
-        <Style TargetType="ComboBox">
+        <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
             <Setter Property="Height" Value="28" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
@@ -26,7 +26,7 @@
 
         <Grid Grid.Row="0">
             <Grid.Resources>
-                <Style TargetType="TextBox">
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
                     <Setter Property="Height" Value="28" />
                     <Setter Property="VerticalContentAlignment" Value="Center" />
                 </Style>
