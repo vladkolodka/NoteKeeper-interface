@@ -3,10 +3,74 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="300">
-    <Grid>
+        Title="Authorrization" Height="200" Width="368" 
+        WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Height" Value="26"/>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource {x:Type PasswordBox}}">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="GoToPage" Executed="GoCommand_OnExecuted" CanExecute="GoCommand_OnCanExecute"/>
+    </Window.CommandBindings>
+    
+    <Grid Margin="8 11">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
         
+        <!-- Grid body -->
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                   Text="kachNote" FontSize="20"/>
+        <Button Grid.Row="0" Grid.Column="1"
+                Content="Sign Up" HorizontalAlignment="Right" 
+                Width="90"
+                Click="SignUpButton_OnClick"/>
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                   Foreground="Red"  TextAlignment="Right"
+                   Text="Login or password is incorrent. Try again."
+                   Name="ErrorText" Visibility="Hidden"/>
+        
+        <!-- Login -->
+        <TextBlock Grid.Row="2" Grid.Column="0"
+                   Text="Login:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Name="LoginText" TabIndex="0"
+                 GotFocus="TextBox_OnGotFocus"/>
+
+        <!-- Password -->
+        <TextBlock Grid.Row="3" Grid.Column="0">
+            Password(<Hyperlink>forgot?</Hyperlink>):
+        </TextBlock>
+        <PasswordBox Grid.Row="3" Grid.Column="1" 
+                     PasswordChar="*" Name="PasswordText" TabIndex="1"
+                     GotFocus="TextBox_OnGotFocus"/>
+        
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Content="GO" TabIndex="2"
+                Command="GoToPage"/>
     </Grid>
 </Window>
