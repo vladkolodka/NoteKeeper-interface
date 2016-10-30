@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NoteKeeper_interface"
         mc:Ignorable="d"
         Title="Create new note" Height="372" Width="585"
         MinHeight="372" MinWidth="585" WindowStartupLocation="CenterOwner">
@@ -16,7 +17,9 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
     </Window.Resources>
-
+    <Window.CommandBindings>
+        <CommandBinding Command="local:App.RandomColors" Executed="RandomColorsCommand_OnExecuted"/>
+    </Window.CommandBindings>
     <Grid Margin="10 5">
         <Grid.RowDefinitions>
             <RowDefinition Height="108" />

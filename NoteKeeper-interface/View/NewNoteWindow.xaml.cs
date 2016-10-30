@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NoteKeeper_interface.Utils;
 using MessageBox = System.Windows.MessageBox;
 
 namespace NoteKeeper_interface.View {
@@ -43,10 +44,14 @@ namespace NoteKeeper_interface.View {
         }
 
         private void ImageButton_OnClick(object sender, RoutedEventArgs e) {
-            var path = Utils.MainUtils.LoadImageFile();
-            if(path == null) return;
+            var path = MainUtils.LoadImageFile();
+            if (path == null) return;
 
             Avatar.Source = new BitmapImage(new Uri(path));
+        }
+
+        private void RandomColorsCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e) {
+            FunUtils.SetRandomColorsForContols(this);
         }
     }
 }
