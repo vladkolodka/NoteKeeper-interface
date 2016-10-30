@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace NoteKeeper_interface.View {
     /// <summary>
@@ -10,9 +11,6 @@ namespace NoteKeeper_interface.View {
         private int _counter;
 
         public LoginWindow() {
-            //new NewNoteWindow().Show();
-            //Close();
-
             InitializeComponent();
             LoginText.Focus();
         }

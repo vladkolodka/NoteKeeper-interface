@@ -20,12 +20,7 @@ namespace NoteKeeper_interface.View {
         }
 
         private void ChooseAvatarButton_OnClick(object sender, RoutedEventArgs e) {
-            var openFileDialog = new OpenFileDialog {
-                Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*"
-            };
-
-            if (openFileDialog.ShowDialog() == true)
-                _avatarImagePath = openFileDialog.FileName;
+            _avatarImagePath = Utils.MainUtils.LoadImageFile();
         }
 
         private void UploadCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e) {

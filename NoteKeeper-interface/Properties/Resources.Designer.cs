@@ -97,6 +97,15 @@ namespace NoteKeeper_interface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Note title are not entered..
+        /// </summary>
+        internal static string newNoteNoTitle {
+            get {
+                return ResourceManager.GetString("newNoteNoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Note saved..
         /// </summary>
         internal static string noteSaved {

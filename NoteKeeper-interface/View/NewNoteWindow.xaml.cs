@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MessageBox = System.Windows.MessageBox;
 
@@ -30,9 +32,21 @@ namespace NoteKeeper_interface.View {
         }
 
         private void PublishButton_OnClick(object sender, RoutedEventArgs e) {
+            if (string.IsNullOrEmpty(TitleBox.Text)) {
+                MessageBox.Show(this, Properties.Resources.newNoteNoTitle); // temp
+                return;
+            }
+
             Close();
             // TODO replace with custom dialog window
             MessageBox.Show(this, Properties.Resources.noteSaved);
+        }
+
+        private void ImageButton_OnClick(object sender, RoutedEventArgs e) {
+            var path = Utils.MainUtils.LoadImageFile();
+            if(path == null) return;
+
+            Avatar.Source = new BitmapImage(new Uri(path));
         }
     }
 }

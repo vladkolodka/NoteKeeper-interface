@@ -48,7 +48,7 @@
             </Border>
 
             <TextBox Grid.Row="0" Grid.Column="1"
-                     Text="Title" />
+                     Text="Title" Name="TitleBox"/>
 
             <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.ColumnDefinitions>
@@ -98,7 +98,7 @@
                     </StackPanel.Resources>
                     <Rectangle Fill="Black" Height="28" Width="28" Cursor="Hand"
                            Margin="0 0 5 0" MouseDown="ColorRectangle_OnMouseDown" />
-                    <Button Content="+IMG" />
+                    <Button Content="+IMG" Click="ImageButton_OnClick" />
                     <Button Content="+LIST" />
                     <Button Content="+URL" Margin="0" />
                 </StackPanel>
