@@ -109,6 +109,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Resources\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,7 +142,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\ScaleGlass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Key.png" />
+    <Resource Include="Resources\Time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Busket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Account.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

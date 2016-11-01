@@ -5,8 +5,115 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow"
+        MinHeight="560" MinWidth="880"
+        Height="560" Width="840"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ImageBrush x:Key="ClearButtonBackground" ImageSource="../Resources/Cross.png"  Stretch="Fill"/>
+    </Window.Resources>
+    <DockPanel>
+        <Menu x:Name="MenuBar" DockPanel.Dock="Top" Height="Auto" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New note"/>
+                <MenuItem Header="New notebook"/>
+                <MenuItem Header="Import"/>
+                <MenuItem Header="Export"/>
+                <MenuItem Header="Preview"/>
+                <MenuItem Header="Print"/>
+                <MenuItem Header="Attach the file"/>
+                <MenuItem Header="Sign out"/>
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Notes"/>
+                <MenuItem Header="Notebooks"/>
+                <MenuItem Header="See all tegs"/>
+                <MenuItem Header="Hide all notebooks"/>
+            </MenuItem>
+            <MenuItem Header="Service">
+                <MenuItem Header="Synchronization"/>
+                <MenuItem Header="Settings"/>
+                <MenuItem Header="Accounts"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="Tips"/>
+                <MenuItem Header="About program" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="106*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="290"/>
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Grid.Row="0" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <Border Grid.Column="0" Grid.Row="1" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <Border Grid.Column="1" Grid.Row="0" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.MergedDictionaries>
+                            <ResourceDictionary Source="/NoteKeeper-interface;component/Resources/Buttons.xaml"/>
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </StackPanel.Resources>
+                <Border BorderBrush="#FF464646" BorderThickness="0.5" Margin="6"
+                        CornerRadius="15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="Button"></Style>
+                        </Grid.Resources>
+                        <Image Grid.Column="0" Name="ImageLoupe" Source="../Resources/ScaleGlass.jpg" Margin="2.5" Width="26"/>
+                        <TextBox Grid.Column="1" Name="TextSearch" Margin="1" VerticalContentAlignment="Center" FontSize="20" BorderThickness="0"/>
+                            <Button Grid.Column="3" Name="ClearButton" Click="ClearButton_Click" Template="{StaticResource ClearBuuton}"/>
+                        </Grid>
+                </Border>
+                
+                    <Button Name="SyncButton" Click="ClearButton_Click" Template="{StaticResource SyncButton}"/>
+                    <Button Name="SyncButton1" Click="ClearButton_Click" Template="{StaticResource PlusButton}"/>
+            </StackPanel>
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="/NoteKeeper-interface;component/Resources/Buttons.xaml"/>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </StackPanel.Resources>
+                    <Button Name="BusketButton" Click="ClearButton_Click" Template="{StaticResource BusketButton}"/>
+
+                    <Button Name="TimeButton" Click="ClearButton_Click" Template="{StaticResource TimerButton}"/>
+                    <Button Name="KeyButton" Click="ClearButton_Click" Template="{StaticResource KeyButton}"/>
+                    <Button Name="EditButton" Click="ClearButton_Click" Template="{StaticResource EditButton}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="/NoteKeeper-interface;component/Resources/Buttons.xaml"/>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                        </StackPanel.Resources>
+                            <Button Name="SettingsButton" Click="ClearButton_Click" Template="{StaticResource SettingsButton}"/>
+                            <TextBlock Text="User" VerticalAlignment="Center" FontSize="20"/>
+                            <Button Name="AccountButton" Click="ClearButton_Click" Template="{StaticResource AccountButton}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </DockPanel>
 </Window>

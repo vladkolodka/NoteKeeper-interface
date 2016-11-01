@@ -23,5 +23,10 @@ namespace NoteKeeper_interface.View
         {
             InitializeComponent();
         }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            TextSearch.Clear();
+        }
     }
 }

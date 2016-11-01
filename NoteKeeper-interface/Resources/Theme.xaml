@@ -2520,7 +2520,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Menu}">
                         <Grid>
-                            <Border x:Name="Border" Background="{StaticResource grayGradient}" />
+                            <Border x:Name="Border" Background="{DynamicResource WindowBackgroundBrush}" />
                             <StackPanel IsItemsHost="True" ClipToBounds="True" Orientation="Horizontal"/>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -2553,13 +2553,13 @@
                             </Storyboard>
                         </ControlTemplate.Resources>
                         <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                            <Grid Margin="1,1,1,1">
+                            <Grid Margin="0,1,0,1">
 
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition MinWidth="17" Width="Auto" SharedSizeGroup="MenuItemIconColumnGroup"/>
+                                    <ColumnDefinition Width="5" SharedSizeGroup="MenuItemIconColumnGroup"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGTColumnGroup"/>
-                                    <ColumnDefinition Width="14"/>
+                                    <ColumnDefinition Width="*" SharedSizeGroup="MenuItemIGTColumnGroup"/>
+                                    <ColumnDefinition Width="5"/>
                                 </Grid.ColumnDefinitions>
                                 <Rectangle x:Name="BackgroundGradientOver" Fill="{StaticResource hoverGradient}" Stroke="{StaticResource hoverStroke}" RadiusX="2" RadiusY="2"  Opacity="0" Grid.ColumnSpan="4"/>
                                 <Rectangle x:Name="BackgroundGradientSelected" Fill="{StaticResource BtnOverFill}" Stroke="{StaticResource selectedStroke}" RadiusX="2" RadiusY="2" Opacity="0" Grid.ColumnSpan="4"/>
@@ -2590,7 +2590,7 @@
 
                             <Trigger Property="Role" Value="TopLevelHeader">
                                 <Setter Property="Margin" Value="0,1,0,1"/>
-                                <Setter Property="Padding" Value="6,3,6,3"/>
+                                <Setter Property="Padding" Value="0,0,0,0"/>
                                 <Setter Property="Grid.IsSharedSizeScope" Value="true"/>
                                 <Setter Property="Placement" Value="Bottom" TargetName="SubMenuPopup"/>
                                 <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
