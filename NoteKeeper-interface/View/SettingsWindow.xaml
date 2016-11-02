@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
+        Icon="/NoteKeeper-interface;component/Resources/LoremIpsum.jpg"
         Title="SettingsWindow" Height="340" Width="525" ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" Closing="Window_Closing" Closed="Window_Closed">
     <Grid>
