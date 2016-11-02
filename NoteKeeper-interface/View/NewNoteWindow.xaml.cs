@@ -16,6 +16,15 @@ namespace NoteKeeper_interface.View {
             InitializeComponent();
         }
 
+        public NewNoteWindow(string title, string imagePath, string tegs, string text)
+        {
+            InitializeComponent();
+            Avatar.Source = new BitmapImage(new Uri(imagePath));
+            TitleBox.Text = title;
+            TegsBox.Text = tegs;
+            NoteText.Text = text;
+        }
+
         private void ColorRectangle_OnMouseDown(object sender, MouseButtonEventArgs e) {
             var target = sender as Rectangle;
             if (target == null) return;

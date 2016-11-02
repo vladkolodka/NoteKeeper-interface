@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="300" Width="300">
+        Title="SettingsWindow" Height="340" Width="525" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing" Closed="Window_Closed">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock Margin="10,5,5,5" Text="Avatr" TextAlignment="Left" FontWeight="Bold"/>
+            <Border Margin="10,5,5,5" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"
+                    Width="100" Height="100" HorizontalAlignment="Left"
+                    BorderBrush="#ABADB3" BorderThickness="1">
+                <Image Name="Avatar" Source="/NoteKeeper-interface;component/Resources/Account.png"/>
+            </Border>
+            <Button Name="ChooseFileB" Margin="10,5,5,5" Content="choose file..." Click="ChooseAvatarButton_OnClick" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"/>
+            <Button Name="UploadB" Margin="10,5,5,5" Content="Upload" Click="UploadB_Click" IsEnabled="False" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock Margin="5" Text="Profile" FontWeight="Bold"/>
+            <DockPanel LastChildFill="False">
+                <TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="User name:"/>
+                <TextBox Margin="5" DockPanel.Dock="Right" Width="200" Text="User"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False">
+                <TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="Email:"/>
+                <TextBox Margin="5" DockPanel.Dock="Right" Width="200" Text="some_email@mail.com"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False">
+                <TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="Password:"/>
+                <PasswordBox Margin="5" DockPanel.Dock="Right" Width="200" Password="jkjjnjnkj"/>
+            </DockPanel>
+            <TextBlock Margin="5" Text="View" FontWeight="Bold"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="146*"/>
+                    <ColumnDefinition Width="96*"/>
+                    <ColumnDefinition Width="109*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="5,5,5.4,5.2" Text="Theme"/>
+                <RadioButton Margin="0,5,3.4,5.2" Name="RBLightTheme" Grid.Column="1" Content="Light" HorizontalAlignment="Right" Width="89" Checked="RBLightTheme_Checked"/>
+                <RadioButton Margin="0,5,5.2,0" Name="RBDarkTheme" Grid.Column="2" Content="Dark" Height="17" VerticalAlignment="Top" HorizontalAlignment="Right" Width="89" Checked="RBDarkTheme_Checked"/>
+            </Grid>
+            <DockPanel LastChildFill="False">
+                <TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="Locale:"/>
+                <ComboBox Margin="5" DockPanel.Dock="Right" Width="200">
+                    <TextBlock Text="System(EnUs-UTF8)"/>
+                </ComboBox>
+            </DockPanel>
+            <TextBlock Margin="5" Text="Notifications" FontWeight="Bold"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="152*"/>
+                    <ColumnDefinition Width="200*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="5" Text="Sound" Grid.Column="0" Grid.Row="0"/>
+                <CheckBox Margin="5" Content="Enable" Grid.Column="1" Grid.Row="0" Checked="CheckBox_Checked" />
+
+                <TextBlock Margin="5" Text="System tray" Grid.Column="0" Grid.Row="1"/>
+                <CheckBox Margin="5" Content="Enable" Grid.Column="1" Grid.Row="1" />
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

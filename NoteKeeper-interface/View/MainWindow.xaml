@@ -4,9 +4,257 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteKeeper_interface.View"
+        xmlns:b ="clr-namespace:NoteKeeper_interface.Resources"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow"
+        MinHeight="560" MinWidth="880"
+        Height="560" Width="840"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ImageBrush x:Key="ClearButtonBackground" ImageSource="../Resources/Cross.png"  Stretch="Fill"/>
+        <b:NoteList x:Key="ListObj"/>
+        <DataTemplate x:Key="ListDataTemplate">
+            <Border BorderBrush="Black" 
+                    BorderThickness="1" 
+                    Padding="10">
+                <StackPanel>
+                    <DockPanel LastChildFill="False">
+                        <TextBlock DockPanel.Dock="Left" Text="{Binding NoteName}" FontWeight="Bold"/>
+                        <TextBlock DockPanel.Dock="Right" Text="{Binding Date}"/>
+                    </DockPanel>
+                    <TextBlock Text="{Binding Text}" Margin="0,10,0,0"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel>
+        <Menu x:Name="MenuBar" DockPanel.Dock="Top" Height="Auto" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New note"/>
+                <MenuItem Header="New notebook"/>
+                <MenuItem Header="Import"/>
+                <MenuItem Header="Export"/>
+                <MenuItem Header="Preview"/>
+                <MenuItem Header="Print"/>
+                <MenuItem Header="Attach the file"/>
+                <MenuItem Header="Sign out"/>
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Notes"/>
+                <MenuItem Header="Notebooks"/>
+                <MenuItem Header="See all tegs"/>
+                <MenuItem Header="Hide all notebooks"/>
+            </MenuItem>
+            <MenuItem Header="Service">
+                <MenuItem Header="Synchronization"/>
+                <MenuItem Header="Settings"/>
+                <MenuItem Header="Accounts"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="Tips"/>
+                <MenuItem Header="About program" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="106*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="290"/>
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Grid.Row="0" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <Border Grid.Column="0" Grid.Row="1" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <Border Grid.Column="1" Grid.Row="0" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF464646" BorderThickness="0.5"/>
+            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.MergedDictionaries>
+                            <ResourceDictionary Source="/NoteKeeper-interface;component/Resources/Buttons.xaml"/>
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </StackPanel.Resources>
+                <Border BorderBrush="#FF464646" BorderThickness="0.5" Margin="6"
+                        CornerRadius="15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="Button"></Style>
+                        </Grid.Resources>
+                        <Image Grid.Column="0" Name="ImageLoupe" Source="../Resources/ScaleGlass.jpg" Margin="2.5" Width="26"/>
+                        <TextBox Grid.Column="1" Name="TextSearch" Margin="1" VerticalContentAlignment="Center" FontSize="20" BorderThickness="0"/>
+                        <Button Grid.Column="3" Name="ClearButton" Click="ClearButton_Click" Template="{StaticResource ClearBuuton}"/>
+                    </Grid>
+                </Border>
+
+                <Button Name="SyncButton" Click="SyncButton_Click" Template="{StaticResource SyncButton}"/>
+                <Button Name="SyncButton1" Click="AddButton_Click" Template="{StaticResource PlusButton}"/>
+            </StackPanel>
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="/NoteKeeper-interface;component/Resources/Buttons.xaml"/>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </StackPanel.Resources>
+                    <Button Name="BusketButton" Click="DeleteButton_Click" Template="{StaticResource BusketButton}"/>
+
+                    <Button Name="TimeButton" Click="ShowNotifyButton_Click" Template="{StaticResource TimerButton}"/>
+                    <Button Name="KeyButton" Click="PrivacyButton_Click" Template="{StaticResource KeyButton}"/>
+                    <Button Name="EditButton" Click="EditButton_Click" Template="{StaticResource EditButton}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="/NoteKeeper-interface;component/Resources/Buttons.xaml"/>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </StackPanel.Resources>
+                    <Button Name="SettingsButton" Click="SettingsButton_Click" Template="{StaticResource SettingsButton}"/>
+                    <TextBlock Text="User" VerticalAlignment="Center" FontSize="20"/>
+                    <Rectangle x:Name="Account" Width="30" Height="30" Margin="10,0,10,0">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/NoteKeeper-interface;component/Resources/Account.png" Stretch="Fill"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel LastChildFill="False">
+                    <TextBlock DockPanel.Dock="Left" Margin="10,5,5,5" FontSize="20" FontWeight="Bold" FontFamily="Comic Sans MS">Lore ipsum</TextBlock>
+                    <TextBlock DockPanel.Dock="Right" Margin="5" FontSize="16" VerticalAlignment="Center">7:25pm, OCT 10, 2015</TextBlock>
+                </DockPanel>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <StackPanel.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.MergedDictionaries>
+                                    <ResourceDictionary Source="/NoteKeeper-interface;component/Resources/Buttons.xaml"/>
+                                </ResourceDictionary.MergedDictionaries>
+                            </ResourceDictionary>
+                        </StackPanel.Resources>
+                        <TextBlock Grid.Column="1" Margin="0,0,5,0" FontStyle="Italic" VerticalAlignment="Center" Foreground="#FF797979">
+                        fish, text, picture, test
+                        </TextBlock>
+                        <Rectangle x:Name="teg" Width="15" Height="15" Margin="10,0,10,0">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="/NoteKeeper-interface;component/Resources/Teg.png" Stretch="Fill"></ImageBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </StackPanel>
+                </Grid>
+                <RichTextBox Grid.Row="2" Grid.Column="1" Name="RichTBox" BorderThickness ="0" IsReadOnly="True">
+                    <FlowDocument>
+                        <Paragraph Margin="0,0,6,10">
+                            <Figure Width="180" WrapDirection="Right" HorizontalAnchor="ContentLeft" Margin="0,0,8,0">
+                                <BlockUIContainer>
+                                    <Image Margin="0,-4" Source="/NoteKeeper-interface;component/Resources/LoremIpsum.jpg"/>
+                                </BlockUIContainer>
+                            </Figure>
+                            <Run FontFamily="Tahoma" FontSize="16">
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit,
+                                sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit
+                                in voluptate velit esse cillum dolore
+                                eu fugiat nulla pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt 
+                                in culpa qui officia deserunt mollit anim
+                                id est laborum.
+                            </Run>
+                        </Paragraph>
+                        <Paragraph Margin="7,0,6,10">
+                            <Run FontFamily="Tahoma" FontSize="16" >
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit,
+                                sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit
+                                in voluptate velit esse cillum dolore
+                                eu fugiat nulla pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt 
+                                in culpa qui officia deserunt mollit anim
+                                id est laborum.
+                            </Run>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </Grid>
+            <ScrollViewer Grid.Row="1" Grid.Column="0" Name="ScrollV">
+                <ScrollViewer.Resources>
+                    <Style TargetType="Expander"/>
+                    <Style TargetType="ListBox"/>
+                </ScrollViewer.Resources>
+                <StackPanel>
+                    <Border Name="DeleteTarget" BorderBrush="Black" BorderThickness="1">
+                        <StackPanel Background="#FFBABABA" >
+                            <DockPanel LastChildFill="False">
+                                <TextBlock Margin="4" DockPanel.Dock="Left" Text="3 enteries"/>
+                                <TextBlock Margin="4" DockPanel.Dock="Right" Text="New notebook" FontWeight="Bold"/>
+                            </DockPanel>
+                            <Expander>
+                                <ListBox ItemsSource="{Binding Source={StaticResource ListObj}}"
+                                 ItemTemplate="{StaticResource ListDataTemplate}"/>
+                            </Expander>
+                        </StackPanel>
+                    </Border >
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <StackPanel Background="#FFBABABA" >
+                            <DockPanel LastChildFill="False">
+                                <TextBlock Margin="4" DockPanel.Dock="Left" Text="6 enteries"/>
+                                <TextBlock Margin="4" DockPanel.Dock="Right" Text="Some notes" FontWeight="Bold"/>
+                            </DockPanel>
+                            <Expander >
+                                <ListBox ItemsSource="{Binding Source={StaticResource ListObj}}"
+                                 ItemTemplate="{StaticResource ListDataTemplate}"/>
+                            </Expander>
+                        </StackPanel>
+                    </Border >
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <StackPanel Background="#FFBABABA">
+                            <DockPanel LastChildFill="False">
+                                <TextBlock Margin="4" DockPanel.Dock="Left" Text="10 enteries"/>
+                                <TextBlock Margin="4" DockPanel.Dock="Right" Text="Tralala" FontWeight="Bold"/>
+                            </DockPanel>
+                            <Expander >
+                                <ListBox ItemsSource="{Binding Source={StaticResource ListObj}}"
+                                 ItemTemplate="{StaticResource ListDataTemplate}"/>
+                            </Expander>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </DockPanel>
 </Window>
