@@ -19,9 +19,62 @@ namespace NoteKeeper_interface.View
     /// </summary>
     public partial class SettingsWindow : Window
     {
+
+        private string avatarImagePath;
+
         public SettingsWindow()
         {
             InitializeComponent();
+            RBLightTheme.IsChecked = true;
+        }
+
+        private void ChooseAvatarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            avatarImagePath = Utils.MainUtils.LoadImageFile();
+            if (avatarImagePath != null)
+            {
+                UploadB.IsEnabled = true;
+            }
+        }
+
+        private void UploadB_Click(object sender, RoutedEventArgs e)
+        {
+            Avatar.Source = new BitmapImage(new Uri(avatarImagePath));
+        }
+
+        private void RBLightTheme_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Background = Brushes.White;
+        }
+
+        private void RBDarkTheme_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Background = Brushes.Silver;
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            System.Media.SystemSounds.Beep.Play();
+        }
+
+        private void Window_Closing(object sender, EventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(
+                "Do you want to save changes?",
+                this.Title, MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show(
+                "Changes has been saved.",
+                this.Title, MessageBoxButton.OK,
+                MessageBoxImage.Information);
+            }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Owner.Focus();
         }
     }
 }

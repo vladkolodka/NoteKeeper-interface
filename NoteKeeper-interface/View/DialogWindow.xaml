@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteKeeper_interface.View"
         mc:Ignorable="d"
-        Title="DialogWindow" Height="300" Width="300">
+        Title="DialogWindow" Height="176.749" Width="474.718">
     <Grid>
-        
+
     </Grid>
 </Window>

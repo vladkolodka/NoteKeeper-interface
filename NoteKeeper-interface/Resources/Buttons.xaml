@@ -237,33 +237,4 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    <ControlTemplate x:Key="AccountButton" TargetType="{x:Type Button}">
-        <Grid>
-            <Rectangle x:Name="outerCircle" Width="25" Height="25">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="Account.png" Stretch="Fill"></ImageBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <Viewbox>
-                <ContentControl Margin="30" Content="{TemplateBinding Content}"/>
-            </Viewbox>
-        </Grid>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="outerCircle" Property="Fill">
-                    <Setter.Value>
-                        <ImageBrush TileMode="None" ImageSource="Account.png" Stretch="Uniform" Opacity="0.5"/>
-                    </Setter.Value>
-                </Setter>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX=".9" ScaleY=".9"/>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="RenderTransformOrigin" Value=".5,.5"/>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
 </ResourceDictionary>

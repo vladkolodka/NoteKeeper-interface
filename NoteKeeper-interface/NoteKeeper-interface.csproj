@@ -61,6 +61,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Resources\Note.cs" />
     <Compile Include="Utils\MainUtils.cs" />
     <Compile Include="View\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
@@ -169,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LoremIpsum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Teg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
