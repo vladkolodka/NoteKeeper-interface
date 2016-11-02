@@ -19,7 +19,7 @@ namespace NoteKeeper_interface.View {
         public NewNoteWindow(string title, string imagePath, string tegs, string text)
         {
             InitializeComponent();
-            Avatar.Source = new BitmapImage(new Uri(imagePath));
+            Avatar.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
             TitleBox.Text = title;
             TegsBox.Text = tegs;
             NoteText.Text = text;

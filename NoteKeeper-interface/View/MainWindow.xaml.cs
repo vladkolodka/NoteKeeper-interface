@@ -42,7 +42,7 @@ namespace NoteKeeper_interface.View
         {
             NewNoteWindow temp = new NewNoteWindow(
                 "Lore ipsum",
-                @"C:\Users\Iam\Documents\GitHub\NoteKeeper-interface\NoteKeeper-interface\Resources\LoremIpsum.jpg",
+                @"/Resources/LoremIpsum.jpg",
                 "fish, text, picture, test", "Lorem ipsum dolor sit amet,\n" 
                                 + "consectetur adipiscing elit,\n"
                                 + "sed do eiusmod tempor incididunt\n"

@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="SettingsWindow" Height="340" Width="525" ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" Closing="Window_Closing" Closed="Window_Closed">
+  <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="ImageUploadCommand_OnExecuted" CanExecute="ImageUploadCommand_OnCanExecute"/>
+  </Window.CommandBindings>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -20,7 +24,7 @@
                 <Image Name="Avatar" Source="/NoteKeeper-interface;component/Resources/Account.png"/>
             </Border>
             <Button Name="ChooseFileB" Margin="10,5,5,5" Content="choose file..." Click="ChooseAvatarButton_OnClick" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"/>
-            <Button Name="UploadB" Margin="10,5,5,5" Content="Upload" Click="UploadB_Click" IsEnabled="False" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
+            <Button Name="UploadB" Margin="10,5,5,5" Content="Upload" Command="Open" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <TextBlock Margin="5" Text="Profile" FontWeight="Bold"/>
