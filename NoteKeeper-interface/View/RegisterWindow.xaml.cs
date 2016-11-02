@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using Microsoft.Win32;
+using NoteKeeper_interface.Utils;
 
 namespace NoteKeeper_interface.View {
     /// <summary>
@@ -20,7 +20,7 @@ namespace NoteKeeper_interface.View {
         }
 
         private void ChooseAvatarButton_OnClick(object sender, RoutedEventArgs e) {
-            _avatarImagePath = Utils.MainUtils.LoadImageFile();
+            _avatarImagePath = MainUtils.LoadImageFile();
         }
 
         private void UploadCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e) {
@@ -65,6 +65,10 @@ namespace NoteKeeper_interface.View {
         private void TextBox_OnGotFocus(object sender, RoutedEventArgs e) {
             (sender as TextBox)?.SelectAll();
             (sender as PasswordBox)?.SelectAll();
+        }
+
+        private void RandomColorsCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e) {
+            FunUtils.SetRandomColorsForContols(this);
         }
     }
 }

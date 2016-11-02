@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NoteKeeper_interface"
         mc:Ignorable="d"
         Title="Create new kachNote account" 
         Height="332" Width="516"
@@ -12,6 +13,7 @@
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="UploadCommand_OnExecuted" CanExecute="UploadCommand_OnCanExecute"/>
         <CommandBinding Command="New" Executed="NewCommand_OnExecuted" CanExecute="NewCommand_OnCanExecute"/>
+        <CommandBinding Command="local:App.RandomColors" Executed="RandomColorsCommand_OnExecuted"/>
     </Window.CommandBindings>
     
     <Window.Resources>

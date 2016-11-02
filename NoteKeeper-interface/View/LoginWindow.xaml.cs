@@ -14,7 +14,7 @@ namespace NoteKeeper_interface.View {
             InitializeComponent();
             LoginText.Focus();
         }
-
+        
         private void SignUpButton_OnClick(object sender, RoutedEventArgs e) {
             var registerWindow = new RegisterWindow {Owner = this};
             registerWindow.ShowDialog();
@@ -46,6 +46,10 @@ namespace NoteKeeper_interface.View {
                 string.IsNullOrEmpty(LoginText.Text) ||
                 string.IsNullOrEmpty(PasswordText.Password)
                 );
+        }
+
+        private void RandomColorsCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e) {
+            Utils.FunUtils.SetRandomColorsForContols(this);
         }
     }
 }

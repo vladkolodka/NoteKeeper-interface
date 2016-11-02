@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Input;
 
-namespace NoteKeeper_interface
-{
+namespace NoteKeeper_interface {
     /// <summary>
-    /// Interaction logic for App.xaml
+    ///     Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
-    {
+    public partial class App : Application {
+        public static RoutedCommand RandomColors { get; private set; }
+
+        static App() {
+            RandomColors = new RoutedCommand("RandomColors", typeof(App), new InputGestureCollection {
+                new KeyGesture(Key.R, ModifierKeys.Control | ModifierKeys.Shift)
+            });
+        }
     }
 }
