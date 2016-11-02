@@ -19,8 +19,7 @@ namespace NoteKeeper_interface.View
     /// </summary>
     public partial class SettingsWindow : Window
     {
-
-        private string avatarImagePath;
+        private string _avatarImagePath;
 
         public SettingsWindow()
         {
@@ -30,16 +29,7 @@ namespace NoteKeeper_interface.View
 
         private void ChooseAvatarButton_OnClick(object sender, RoutedEventArgs e)
         {
-            avatarImagePath = Utils.MainUtils.LoadImageFile();
-            if (avatarImagePath != null)
-            {
-                UploadB.IsEnabled = true;
-            }
-        }
-
-        private void UploadB_Click(object sender, RoutedEventArgs e)
-        {
-            Avatar.Source = new BitmapImage(new Uri(avatarImagePath));
+            _avatarImagePath = Utils.MainUtils.LoadImageFile();
         }
 
         private void RBLightTheme_Checked(object sender, RoutedEventArgs e)
@@ -75,6 +65,14 @@ namespace NoteKeeper_interface.View
         private void Window_Closed(object sender, EventArgs e)
         {
             Owner.Focus();
+        }
+
+        private void ImageUploadCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e) {
+            Avatar.Source = new BitmapImage(new Uri(_avatarImagePath, UriKind.Absolute));
+        }
+
+        private void ImageUploadCommand_OnCanExecute(object sender, CanExecuteRoutedEventArgs e) {
+            e.CanExecute = !string.IsNullOrEmpty(_avatarImagePath);
         }
     }
 }

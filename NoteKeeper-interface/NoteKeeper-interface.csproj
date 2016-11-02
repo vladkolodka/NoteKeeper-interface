@@ -62,6 +62,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Resources\Note.cs" />
+    <Compile Include="Utils\FunUtils.cs" />
     <Compile Include="Utils\MainUtils.cs" />
     <Compile Include="View\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
