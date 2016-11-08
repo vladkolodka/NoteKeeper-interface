@@ -32,7 +32,8 @@
     <DockPanel>
         <Menu x:Name="MenuBar" DockPanel.Dock="Top" Height="Auto" VerticalAlignment="Top">
             <MenuItem Header="File">
-                <MenuItem Header="New note"/>
+                <MenuItem Header="New note" Click="EditButton_Click"/>
+                <MenuItem Header="New note master" Click="NewNoteMasterMenuItem_Click"/>
                 <MenuItem Header="New notebook"/>
                 <MenuItem Header="Import"/>
                 <MenuItem Header="Export"/>
@@ -91,8 +92,9 @@
                             <Style TargetType="Button"></Style>
                         </Grid.Resources>
                         <Image Grid.Column="0" Name="ImageLoupe" Source="../Resources/ScaleGlass.jpg" Margin="2.5" Width="26"/>
-                        <TextBox Grid.Column="1" Name="TextSearch" Margin="1" VerticalContentAlignment="Center" FontSize="20" BorderThickness="0"/>
-                        <Button Grid.Column="3" Name="ClearButton" Click="ClearButton_Click" Template="{StaticResource ClearBuuton}"/>
+                        <TextBox Grid.Column="1" Name="TextSearch" Margin="1" VerticalContentAlignment="Center" FontSize="20" BorderThickness="0"
+                                 KeyUp="TextSearch_OnKeyUp"/>
+                        <Button Grid.Column="2" Name="ClearButton" Click="ClearButton_Click" Template="{StaticResource ClearBuuton}"/>
                     </Grid>
                 </Border>
 
@@ -158,17 +160,17 @@
                                 </ResourceDictionary.MergedDictionaries>
                             </ResourceDictionary>
                         </StackPanel.Resources>
-                        <TextBlock Grid.Column="1" Margin="0,0,5,0" FontStyle="Italic" VerticalAlignment="Center" Foreground="#FF797979">
+                        <TextBlock Margin="0,0,5,0" FontStyle="Italic" VerticalAlignment="Center" Foreground="#FF797979">
                         fish, text, picture, test
                         </TextBlock>
-                        <Rectangle x:Name="teg" Width="15" Height="15" Margin="10,0,10,0">
+                        <Rectangle x:Name="Teg" Width="15" Height="15" Margin="10,0,10,0">
                             <Rectangle.Fill>
                                 <ImageBrush ImageSource="/NoteKeeper-interface;component/Resources/Teg.png" Stretch="Fill"></ImageBrush>
                             </Rectangle.Fill>
                         </Rectangle>
                     </StackPanel>
                 </Grid>
-                <RichTextBox Grid.Row="2" Grid.Column="1" Name="RichTBox" BorderThickness ="0" IsReadOnly="True">
+                <RichTextBox Grid.Row="2" Grid.Column="0" Name="RichTBox" BorderThickness ="0" IsReadOnly="True">
                     <FlowDocument>
                         <Paragraph Margin="0,0,6,10">
                             <Figure Width="180" WrapDirection="Right" HorizontalAnchor="ContentLeft" Margin="0,0,8,0">

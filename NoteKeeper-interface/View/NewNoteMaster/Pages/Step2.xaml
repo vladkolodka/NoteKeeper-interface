@@ -1,0 +1,28 @@
+﻿<Page x:Class="NoteKeeper_interface.View.NewNoteMaster.Pages.Step2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NoteKeeper_interface.View.NewNoteMaster.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="400"
+      Title="Step2">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Tags"/>
+            <TextBox Name="TagsBox" Text="tag1, tag2, tag3, tag4" />
+            
+            <TextBlock Text="Note group" Margin="0 10 0 0"/>
+            <ComboBox Name="Group">
+                <ComboBoxItem>default</ComboBoxItem>
+                <ComboBoxItem>sketches</ComboBoxItem>
+                <ComboBoxItem>other</ComboBoxItem>
+                <ComboBoxItem>work</ComboBoxItem>
+            </ComboBox>
+
+
+        </StackPanel>
+
+    </Grid>
+</Page>

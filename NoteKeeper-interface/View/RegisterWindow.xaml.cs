@@ -44,8 +44,8 @@ namespace NoteKeeper_interface.View {
                 ShowError(Properties.Resources.badPassword);
                 return;
             }
-            // TODO replace with custom dialog window
-            MessageBox.Show(this, Properties.Resources.accountCreated); // Temp
+            MessageBox.Show(this, Properties.Resources.accountCreated);
+            Close();
         }
 
         private void ShowError(string errorMessage) {

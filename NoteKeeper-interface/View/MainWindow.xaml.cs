@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NoteKeeper_interface.Resources;
+using NoteKeeper_interface.View.NewNoteMaster;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.MessageBox;
+using Timer = System.Windows.Forms.Timer;
 
 namespace NoteKeeper_interface.View
 {
@@ -117,6 +122,26 @@ namespace NoteKeeper_interface.View
                     System.Windows.Forms.MessageBoxIcon.Error);
             } while (result == System.Windows.Forms.DialogResult.Retry);
             
+        }
+
+        private void NewNoteMasterMenuItem_Click(object sender, RoutedEventArgs e) {
+            var window = new NewNoteMasterWindow {Owner = this};
+
+            window.ShowDialog();
+        }
+
+        private void TextSearch_OnKeyUp(object sender, KeyEventArgs e) {
+            if (e.Key != System.Windows.Input.Key.Enter) return;
+
+            if (string.Equals(TextSearch.Text, "Халк крушить!", StringComparison.OrdinalIgnoreCase)) {
+                TextSearch.Text = "";
+                
+                var timer = new Timer {Interval = 100};
+                timer.Tick += (o, args) => {
+                    Utils.FunUtils.SetRandomColorsForContols(this);
+                };
+                timer.Enabled = true;
+            }
         }
     }
 }

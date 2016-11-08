@@ -1,0 +1,47 @@
+﻿<Window x:Class="NoteKeeper_interface.View.NewNoteMaster.NewNoteMasterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NoteKeeper_interface.View.NewNoteMaster"
+        mc:Ignorable="d"
+        Title="Note creation master" Height="400" Width="500"
+        WindowStyle="ToolWindow" ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner">
+    <!--
+            DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    -->
+    <Window.CommandBindings>
+        <CommandBinding Command="NextPage" Executed="NextPage_OnExecuted"/>
+        <CommandBinding Command="PreviousPage" Executed="PrevPageCommand_OnExecuted" CanExecute="PrevPageCommand_OnCanExecute"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TabControl/>
+        <Frame Grid.Row="0" NavigationUIVisibility="Hidden" Name="MasterPage" Navigating="MasterPage_OnNavigating" Padding="5" />
+        
+        <DockPanel Grid.Row="1" LastChildFill="False" Margin="5">
+            <DockPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="Padding" Value="10 2"/>
+                    <Setter Property="Margin" Value="5 0 0 0"/>
+                </Style>
+            </DockPanel.Resources>
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <TextBlock Text="Step "/>
+                <TextBlock Text="1" Name="StepNumber"/>
+                <TextBlock Text=" of "/>
+                <TextBlock Text="5" Name="EndStepNumber"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button Content="Back" Command="PreviousPage"/>
+                <Button Content="Next" Tag="Next;Create" Command="NextPage" Name="NextButton"/>
+                <Button Margin="10 0 0 0" Content="Cancel" Click="CancalButton_OnClick"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
