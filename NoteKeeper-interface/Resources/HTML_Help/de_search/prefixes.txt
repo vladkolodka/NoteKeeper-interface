@@ -1,0 +1,168 @@
+0xu0031
+ 1
+ 11
+0xu0032
+ 2
+ 2016
+0xu0033
+ 3
+ 3.6
+0xu0034
+ 4
+ 4
+0xu0035
+ 5
+ 5
+0xu0036
+ 6
+ 6
+0xu0037
+ 7
+ 7
+0xu0038
+ 8
+ 8
+0xu0039
+ 9
+ 9
+0xu0041
+ ABOUT
+ ATTACH
+0xu0042
+ B
+ BACK
+0xu0043
+ CHOOSE
+ CREATE
+0xu0044
+ DARK
+ DARK
+0xu0045
+ EDIT
+ EXPORT
+0xu0046
+ FILE
+ FILE
+0xu0047
+ GO
+ GROUPE
+0xu0048
+ HELP
+ HIDE
+0xu0049
+ I
+ IMPORT
+0xu004a
+ JPEG
+ JPEG
+0xu004b
+ KACHNOTE
+ KACHNOTE
+0xu004c
+ LIGHT
+ LOGINА
+0xu004d
+ MAINWINDOW
+ MAINWINDOW
+0xu004e
+ NAME
+ NOTEKEEPER
+0xu0050
+ PASSWORD
+ PUBLISH\EDIT
+0xu0051
+ QUESTION
+ QUESTION
+0xu0052
+ REPEAT
+ REPEAT
+0xu0053
+ SECRET
+ SYSTEMTRAY
+0xu0054
+ THE
+ TITLE
+0xu0055
+ U
+ USER
+0xu0056
+ VIEW
+ VIEW
+0xu0410
+ А
+ АНАЛОГИЧНЫЕ
+0xu0411
+ БЕЗ
+ БЫТЬ
+0xu0412
+ В
+ ВЫХОДА
+0xu0413
+ ГРУППА
+ ГРУППЕ
+0xu0414
+ ДАЛЕЕ
+ ДОСТУПНЫХ
+0xu0415
+ ЕЁ
+ ЕСЛИ
+0xu0416
+ ЖЕ
+ ЖЕЛАНИЮ
+0xu0417
+ ЗАБЫЛ
+ ЗВУКОВОЕ
+0xu0418
+ И
+ ИХ
+0xu041a
+ К
+ КУРСИВНОГО
+0xu041b
+ ЛИ
+ ЛОГИНА
+0xu041c
+ МАСТЕРА
+ МОЖЕТ
+0xu041d
+ НА
+ НОВЫЙ
+0xu041e
+ О
+ ОЧИСТКИ
+0xu041f
+ ПАНЕЛИ
+ ПУТЬ
+0xu0420
+ РАБОТА
+ РУКОВОДСТВОМ
+0xu0421
+ С
+ СХЕМЫ
+0xu0422
+ ТАКЖЕ
+ ТРЕЕ
+0xu0423
+ У
+ УЧЕТНОЙ
+0xu0424
+ ФАЙЛ
+ ФОРМУ
+0xu0425
+ ХОЧЕТ
+ ХОЧЕТ
+0xu0426
+ ЦВЕТ
+ ЦВЕТОВУЮ
+0xu0427
+ ЧТО
+ ЧТОБЫ
+0xu0428
+ ШРИФТ
+ ШРИФТА
+0xu042d
+ ЭКСПОРТ
+ ЭТОМ
+0xu042f
+ ЯВЛЯЕТСЯ
+ ЯВЛЯЕТСЯ

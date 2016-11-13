@@ -17,6 +17,7 @@ using NoteKeeper_interface.View.NewNoteMaster;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using Timer = System.Windows.Forms.Timer;
+using System.Windows.Input;
 
 namespace NoteKeeper_interface.View
 {
@@ -28,7 +29,6 @@ namespace NoteKeeper_interface.View
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace NoteKeeper_interface.View
             NewNoteWindow temp = new NewNoteWindow(
                 "Lore ipsum",
                 @"/Resources/LoremIpsum.jpg",
-                "fish, text, picture, test", "Lorem ipsum dolor sit amet,\n" 
+                "fish, text, picture, test", "Lorem ipsum dolor sit amet,\n"
                                 + "consectetur adipiscing elit,\n"
                                 + "sed do eiusmod tempor incididunt\n"
                                 + "ut labore et dolore magna aliqua.\n"
@@ -108,7 +108,7 @@ namespace NoteKeeper_interface.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            new NewNoteWindow().Show();            
+            new NewNoteWindow().Show();
         }
 
         private void SyncButton_Click(object sender, RoutedEventArgs e)
@@ -121,27 +121,42 @@ namespace NoteKeeper_interface.View
                     "Synchronization", System.Windows.Forms.MessageBoxButtons.RetryCancel,
                     System.Windows.Forms.MessageBoxIcon.Error);
             } while (result == System.Windows.Forms.DialogResult.Retry);
-            
+
         }
 
-        private void NewNoteMasterMenuItem_Click(object sender, RoutedEventArgs e) {
-            var window = new NewNoteMasterWindow {Owner = this};
+        private void NewNoteMasterMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new NewNoteMasterWindow { Owner = this };
 
             window.ShowDialog();
         }
 
-        private void TextSearch_OnKeyUp(object sender, KeyEventArgs e) {
+        private void TextSearch_OnKeyUp(object sender, KeyEventArgs e)
+        {
             if (e.Key != System.Windows.Input.Key.Enter) return;
 
-            if (string.Equals(TextSearch.Text, "Халк крушить!", StringComparison.OrdinalIgnoreCase)) {
+            if (string.Equals(TextSearch.Text, "Халк крушить!", StringComparison.OrdinalIgnoreCase))
+            {
                 TextSearch.Text = "";
-                
-                var timer = new Timer {Interval = 100};
-                timer.Tick += (o, args) => {
+
+                var timer = new Timer { Interval = 100 };
+                timer.Tick += (o, args) =>
+                {
                     Utils.FunUtils.SetRandomColorsForContols(this);
                 };
                 timer.Enabled = true;
             }
+        }
+
+        private void TipsItem_Click(object sender, RoutedEventArgs e)
+        {
+            Help.ShowHelp(null, "Resources\\CHMHelp.chm");
+        }
+
+        //Add here html
+        private void HelpF1(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Hello");
         }
     }
 }

@@ -1,0 +1,10 @@
+LIGHT
+ 27,7
+LIST
+ 17,5
+LOCALE
+ 7
+LOGIN
+ 11,9,6,3
+LOGINА
+ 3

@@ -11,7 +11,9 @@
         MinHeight="560" MinWidth="880"
         Height="560" Width="840"
         WindowStartupLocation="CenterScreen">
-
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="HelpF1"/>
+    </Window.CommandBindings>
     <Window.Resources>
         <ImageBrush x:Key="ClearButtonBackground" ImageSource="../Resources/Cross.png"  Stretch="Fill"/>
         <b:NoteList x:Key="ListObj"/>
@@ -51,11 +53,11 @@
             </MenuItem>
             <MenuItem Header="Service">
                 <MenuItem Header="Synchronization"/>
-                <MenuItem Header="Settings"/>
+                <MenuItem Header="Settings" Click="SettingsButton_Click"/>
                 <MenuItem Header="Accounts"/>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="Tips"/>
+                <MenuItem Header="Tips" Click="TipsItem_Click"/>
                 <MenuItem Header="About program" />
             </MenuItem>
         </Menu>
