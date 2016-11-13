@@ -152,11 +152,10 @@ namespace NoteKeeper_interface.View
         {
             Help.ShowHelp(null, "Resources\\CHMHelp.chm");
         }
-
-        //Add here html
+        
         private void HelpF1(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("Hello");
+            System.Diagnostics.Process.Start("https://vladkolodka.github.io/NoteKeeper-interface/HTML_Help/index.htm");
         }
     }
 }
